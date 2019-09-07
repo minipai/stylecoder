@@ -1,9 +1,23 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Article } from "../components/Article"
+
+const Post = styled.article`
+  display: flex;
+  margin: 0 0 2rem;
+  header {
+    width: 9rem;
+    flex-shrink: 0;
+  }
+  section {
+    h3 {
+      margin-top: 0;
+    }
+  }
+`
 
 class BlogIndex extends React.Component {
   render() {
@@ -19,8 +33,11 @@ class BlogIndex extends React.Component {
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <article key={node.fields.slug}>
+              <Post key={node.fields.slug}>
                 <header>
+                  <small>{node.frontmatter.date}</small>
+                </header>
+                <section>
                   <h3>
                     <Link
                       style={{ boxShadow: `none` }}
@@ -29,16 +46,14 @@ class BlogIndex extends React.Component {
                       {title}
                     </Link>
                   </h3>
-                  <small>{node.frontmatter.date}</small>
-                </header>
-                <section>
                   <p
                     dangerouslySetInnerHTML={{
                       __html: node.frontmatter.description || node.excerpt,
                     }}
                   />
                 </section>
-              </article>
+                <hr />
+              </Post>
             )
           })}
         </Article>

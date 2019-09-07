@@ -1,0 +1,20 @@
+---
+title: Fire.app是什麼？
+slug: fireappshi-shi-mo-
+date: 2013-03-28T07:53:55.000Z
+date_updated: 2016-04-14T02:18:27.425Z
+---
+
+可能最近RGBA的大力推廣，對[Fire.app](http://fireapp.handlino.com/)有興趣的人多了起來，最近要開的[Fire.app workshop](http://registrano.com/events/fireapp-workshop-tpe-2013)也已經爆滿了。不過一直一來好像很多人只知道Fire.app很好，但是不知道是什麼，所以想來RGBA學。尤其是這星期我還在RGBA聽到有人問「Fire.app要怎麼用在現有的PHP網站裡」，讓我覺得這個問題真的很嚴重。
+
+其實Fire.app的官網的確從來沒有說過Fire.app是「什麼」，而是說「Fire.app 是一個能夠使網站原型製作更快更方便的工具／Dead Easy HTML Prototyping」，這只說明了Fire.app可以做一種事情：Prototyping。但是其實prototyping這件事只有在比較嚴謹的開發流程才會發生，很少人對prototyping是怎麼回事有清楚地認識，所以看完還是不知道Fire.app是什麼。
+
+所以要說明Fire.app是什麼東西，我覺得借用[middleman](http://middlemanapp.com/)的說明還比較清楚：「a static site generator using all the shortcuts and tools in modern web development」。意思是：一個讓你使用所有現代網頁開發工具的**靜態網站產生器**。
+
+這樣意思就比較清楚了，Fire.app是一個靜態網站產生器。但是**靜態網站產生器**有是什麼意思呢？這邊靜態網站就是HTML就只是HTML，不是用PHP等後端程式架的網站，所以Fire.app換句話說就是「HTML產生器」。
+
+那為什麼HTML要用產生的呢？第一，為了重複使用元素。即使是2013的今天，剛入門網頁設計的新手還是在問怎麼讓選單在每頁重複出現，而HTML的唯一解已經被認為有問題的，所以現在正規做法是後端處理，例如PHP include。但是只要寫類似的語法，Fire.app可以幫你「產生」每頁有共通元素的頁面。第二，你可以用Haml或是Slim等可以打更少字的template語言來產生HTML，這在後端程式架的網站也很常使用。甚至，Fire.app還可以讀取local的資料來填入template上的變數。換句話說，一個沒有連接資料庫的PHP網站，是可以改用Fire.app這種靜態網站產生器來做的。
+
+光是一個站可以共用一個Layout，而不是自己手動copy paste就能省下非常多時間，所以Fire.app會是一個「使網站原型製作更快更方便的工具」。但是如果你本來就是要做一個靜態網站，那Fire.app產生出來的HTML就不是原型，而是成品了。內容很固定，但是頁數也不少的形象網站就是適合使用Fire.app來制作的典型。接這類案子比較多的設計師趕快把你的案子改用Fire.app來寫吧！
+
+所以HTML的產生是Fire.app的核心，附加的是Sass、Compass、markdown、CoffeeScript等各式各樣現代網頁開發工具，讓你寫得更快更快，這些東西你用到越多，就越能發揮Fire.app的威力。如果你要寫的是一個動態網站的CSS部分，不要誤會Fire.app的用途了，這時你要用的是Compass.app，針對Sass的部分編譯就好了。
