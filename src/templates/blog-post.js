@@ -1,10 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from "styled-components"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { Article } from "../components/Article"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -14,71 +14,78 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-        />
-        <article>
-          <header>
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
-              {post.frontmatter.title}
-            </h1>
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
-              {post.frontmatter.date}
-            </p>
-          </header>
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
+        <Article>
+          <SEO
+            title={post.frontmatter.title}
+            description={post.frontmatter.description || post.excerpt}
           />
-          <footer>
-            <Bio />
-          </footer>
-        </article>
+          <article className="markdown-body">
+            <header>
+              <h1>{post.frontmatter.title}</h1>
+              <p>{post.frontmatter.date}</p>
+            </header>
+            <section dangerouslySetInnerHTML={{ __html: post.html }} />
+            <hr />
+          </article>
 
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
+          <BlogNav>
+            <ul>
+              <li>
+                {previous ? (
+                  <Link to={"/blog" + previous.fields.slug} rel="prev">
+                    <i class="fal fa-arrow-alt-left"></i>
+                  </Link>
+                ) : (
+                  <i>
+                    <i class="fal fa-arrow-alt-left"></i>
+                  </i>
+                )}
+              </li>
+              <li>
+                {next ? (
+                  <Link to={"/blog" + next.fields.slug} rel="next">
+                    <i class="fal fa-arrow-alt-right"></i>
+                  </Link>
+                ) : (
+                  <i>
+                    <i class="fal fa-arrow-alt-right"></i>
+                  </i>
+                )}
+              </li>
+            </ul>
+          </BlogNav>
+        </Article>
       </Layout>
     )
   }
 }
+
+const BlogNav = styled.nav`
+  position: fixed;
+  right: 0.5rem;
+  bottom: 2rem;
+  transform: rotate(-90deg);
+  font-size: 1.5rem;
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    margin: 0;
+  }
+  a,
+  i {
+    text-decoration: none;
+    padding: 0.25rem;
+    display: inline-block;
+    font-style: normal;
+  }
+  i {
+    opacity: 0.3;
+  }
+`
 
 export default BlogPostTemplate
 

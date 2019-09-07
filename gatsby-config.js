@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Hi, I am Art Pai`,
+    title: `Hello, I am Art Pai`,
     author: `Art Pai`,
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
@@ -21,6 +21,12 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `minipai`,
       },
     },
     {
@@ -57,7 +63,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Hi, I am Art Pai`,
+        name: `Hello, I am Art Pai`,
         short_name: `Art Pai`,
         start_url: `/`,
         background_color: `#ffffff`,
@@ -68,11 +74,6 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
+    `gatsby-plugin-styled-components`,
   ],
 }
