@@ -54,11 +54,24 @@ const AppLayout = styled.div`
     font-size: 1.5rem;
     font-weight: bold;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    @media (max-width: 440px) {
+      height: 3.5rem;
+      width: 100vw;
+      left: 0;
+      top: auto;
+      right: 0;
+      bottom: 0;
+      flex-direction: row;
+      background: #000;
+      z-index: 1;
+    }
+
     a {
       color: #fff;
       opacity: 0.5;
       display: block;
-      margin: 0.7rem 0;
+      margin: 0.7rem;
     }
     a.active {
       color: #fff;
@@ -71,6 +84,10 @@ const AppLayout = styled.div`
     overflow: hidden;
     min-height: 100vh;
     position: relative;
+
+    @media (max-width: 440px) {
+      margin: 0 0 3.5rem 0;
+    }
   }
 `
 

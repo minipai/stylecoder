@@ -63,6 +63,11 @@ const BlogNav = styled.nav`
   bottom: 2rem;
   transform: rotate(-90deg);
   font-size: 1.5rem;
+  @media (max-width: 440px) {
+    flex-direction: column;
+    right: -0.5rem;
+    bottom: 5rem;
+  }
   ul {
     display: flex;
     list-style: none;

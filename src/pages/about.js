@@ -46,6 +46,10 @@ const Gallery = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: 0 0 3rem;
 
+  @media (max-width: 440px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   a {
     display: block;
     border-radius: 4px;

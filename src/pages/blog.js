@@ -40,7 +40,6 @@ class BlogIndex extends React.Component {
                     />
                   )}
                 </section>
-                <hr />
               </Post>
             )
           })}
@@ -52,6 +51,9 @@ class BlogIndex extends React.Component {
 
 const Post = styled.article`
   display: flex;
+  @media (max-width: 440px) {
+    flex-direction: column;
+  }
   header {
     width: 9rem;
     flex-shrink: 0;

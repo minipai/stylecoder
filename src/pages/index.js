@@ -111,6 +111,15 @@ const Container = styled.div`
     width: 30%;
     box-sizing: border-box;
     background: #fcfcfc;
+
+    @media (max-width: 440px) {
+      width: 45%;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 375px) {
+      width: 90%;
+      font-size: 1.2rem;
+    }
   }
 
   @keyframes fadein {
