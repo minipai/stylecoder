@@ -4,27 +4,26 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Article } from "../components/Article"
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
     const instas = data.allInstaNode.edges.map(edge => edge.node)
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout>
         <SEO title="About" />
-        <Article className="markdown-body">
-          <h1>About Me</h1>
-
+        <div className="markdown-body">
+          <header>
+            <h1>About Me</h1>
+          </header>
           <p>
             從寫 CSS，寫 jQuery，寫 AngularJS，到寫
             React，最後不小心跑到澳洲打工。
           </p>
           <h2>My Instagram</h2>
           <Gallery>
-            {instas.reverse().map(insta => (
+            {instas.map(insta => (
               <a
                 href={`https://www.instagram.com/p/${insta.id}/`}
                 target="_blank"
@@ -34,11 +33,29 @@ class BlogIndex extends React.Component {
               </a>
             ))}
           </Gallery>
-        </Article>
+          <div />
+        </div>
       </Layout>
     )
   }
 }
+
+const Gallery = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 0 3rem;
+
+  a {
+    display: block;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  img {
+    display: block;
+    margin: 0;
+  }
+`
 
 export default BlogIndex
 
@@ -49,7 +66,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allInstaNode {
+    allInstaNode(sort: { fields: timestamp, order: DESC }) {
       edges {
         node {
           id
@@ -79,21 +96,5 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
-`
-
-const Gallery = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  a {
-    display: block;
-    float: left;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  img {
-    display: block;
-    margin: 0;
   }
 `

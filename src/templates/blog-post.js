@@ -4,17 +4,15 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Article } from "../components/Article"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <Article>
+      <Layout>
+        <div>
           <SEO
             title={post.frontmatter.title}
             description={post.frontmatter.description || post.excerpt}
@@ -25,7 +23,6 @@ class BlogPostTemplate extends React.Component {
               <p>{post.frontmatter.date}</p>
             </header>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
-            <hr />
           </article>
 
           <BlogNav>
@@ -36,9 +33,9 @@ class BlogPostTemplate extends React.Component {
                     <i class="fal fa-arrow-alt-left"></i>
                   </Link>
                 ) : (
-                  <i>
+                  <span>
                     <i class="fal fa-arrow-alt-left"></i>
-                  </i>
+                  </span>
                 )}
               </li>
               <li>
@@ -47,14 +44,14 @@ class BlogPostTemplate extends React.Component {
                     <i class="fal fa-arrow-alt-right"></i>
                   </Link>
                 ) : (
-                  <i>
+                  <span>
                     <i class="fal fa-arrow-alt-right"></i>
-                  </i>
+                  </span>
                 )}
               </li>
             </ul>
           </BlogNav>
-        </Article>
+        </div>
       </Layout>
     )
   }
@@ -76,13 +73,13 @@ const BlogNav = styled.nav`
     margin: 0;
   }
   a,
-  i {
+  span {
     text-decoration: none;
     padding: 0.25rem;
     display: inline-block;
     font-style: normal;
   }
-  i {
+  span {
     opacity: 0.3;
   }
 `

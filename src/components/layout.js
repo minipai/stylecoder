@@ -3,6 +3,42 @@ import { Link } from "gatsby"
 
 import styled from "styled-components"
 import Helmet from "react-helmet"
+import { Box } from "rebass"
+
+class Layout extends React.Component {
+  render() {
+    const { children } = this.props
+
+    return (
+      <AppLayout>
+        <Helmet>
+          <script src="https://kit.fontawesome.com/35acc2bd14.js"></script>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css"
+          />
+          <link rel="stylesheet" href="https://use.typekit.net/zrf5dge.css" />
+        </Helmet>
+        <nav>
+          <Link to="/" activeClassName="active">
+            <i class="fal fa-home"></i>
+          </Link>
+          <Link to="/blog" activeClassName="active" partiallyActive>
+            <i class="fal fa-pencil"></i>
+          </Link>
+          <Link to="/about" activeClassName="active">
+            <i class="fal fa-smile"></i>
+          </Link>
+        </nav>
+        <main>
+          <Box px={4} py={4} maxWidth={960} mx="auto">
+            {children}
+          </Box>
+        </main>
+      </AppLayout>
+    )
+  }
+}
 
 const AppLayout = styled.div`
   > nav {
@@ -37,39 +73,5 @@ const AppLayout = styled.div`
     position: relative;
   }
 `
-class Layout extends React.Component {
-  render() {
-    const { children } = this.props
-
-    return (
-      <AppLayout>
-        <Helmet>
-          <script src="https://kit.fontawesome.com/35acc2bd14.js"></script>
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css"
-          />
-          <link rel="stylesheet" href="https://use.typekit.net/zrf5dge.css" />
-        </Helmet>
-        <nav>
-          <Link to="/" activeClassName="active">
-            <i class="fal fa-home"></i>
-          </Link>
-          <Link to="/blog" activeClassName="active" partiallyActive>
-            <i class="fal fa-pencil"></i>
-          </Link>
-          <Link to="/about" activeClassName="active">
-            <i class="fal fa-smile"></i>
-          </Link>
-        </nav>
-        <main>
-          <div>
-            <main>{children}</main>
-          </div>
-        </main>
-      </AppLayout>
-    )
-  }
-}
 
 export default Layout

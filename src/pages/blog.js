@@ -3,21 +3,6 @@ import { Link, graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Article } from "../components/Article"
-
-const Post = styled.article`
-  display: flex;
-  margin: 0 0 2rem;
-  header {
-    width: 9rem;
-    flex-shrink: 0;
-  }
-  section {
-    h3 {
-      margin-top: 0;
-    }
-  }
-`
 
 class BlogIndex extends React.Component {
   render() {
@@ -25,11 +10,12 @@ class BlogIndex extends React.Component {
     const posts = data.allMarkdownRemark.edges
 
     return (
-      <Layout location={this.props.location} title="Blog">
-        <SEO title="All posts" />
-        <Article className="markdown-body">
-          <h1>Blog</h1>
-
+      <Layout>
+        <SEO title="Blog" />
+        <div className="markdown-body">
+          <header>
+            <h1>Blog</h1>
+          </header>
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
@@ -56,11 +42,28 @@ class BlogIndex extends React.Component {
               </Post>
             )
           })}
-        </Article>
+        </div>
       </Layout>
     )
   }
 }
+
+const Post = styled.article`
+  display: flex;
+  margin: 0 0 2rem;
+  header {
+    width: 9rem;
+    flex-shrink: 0;
+  }
+  section {
+    h3 {
+      margin-top: 0;
+    }
+    a {
+      color: #587594;
+    }
+  }
+`
 
 export default BlogIndex
 
