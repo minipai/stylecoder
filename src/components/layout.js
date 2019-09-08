@@ -31,7 +31,7 @@ class Layout extends React.Component {
           </Link>
         </nav>
         <main>
-          <Box px={4} py={4} maxWidth={960} mx="auto">
+          <Box px={4} py={4} maxWidth={875} mx="auto">
             {children}
           </Box>
         </main>

@@ -16,7 +16,7 @@ class BlogIndex extends React.Component {
           <header>
             <h1>Blog</h1>
           </header>
-          {posts.map(({ node }) => {
+          {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <Post key={node.fields.slug}>
@@ -32,11 +32,13 @@ class BlogIndex extends React.Component {
                       {title}
                     </Link>
                   </h3>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
+                  {index < 5 && (
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: node.frontmatter.description || node.excerpt,
+                      }}
+                    />
+                  )}
                 </section>
                 <hr />
               </Post>
@@ -50,7 +52,6 @@ class BlogIndex extends React.Component {
 
 const Post = styled.article`
   display: flex;
-  margin: 0 0 2rem;
   header {
     width: 9rem;
     flex-shrink: 0;
@@ -61,6 +62,9 @@ const Post = styled.article`
     }
     a {
       color: #587594;
+    }
+    p {
+      margin: 0 0 2rem;
     }
   }
 `
