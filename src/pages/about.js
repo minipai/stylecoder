@@ -18,10 +18,13 @@ class BlogIndex extends React.Component {
         <Article className="markdown-body">
           <h1>About Me</h1>
 
-          <p>大家來澳洲玩啊</p>
+          <p>
+            從寫 CSS，寫 jQuery，寫 AngularJS，到寫
+            React，最後不小心跑到澳洲打工。
+          </p>
           <h2>My Instagram</h2>
           <Gallery>
-            {instas.map(insta => (
+            {instas.reverse().map(insta => (
               <a
                 href={`https://www.instagram.com/p/${insta.id}/`}
                 target="_blank"
