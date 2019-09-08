@@ -67,7 +67,7 @@ const AppLayout = styled.div`
   }
   > main {
     background: #fff;
-    margin: 2px 2px 2px 3.5rem;
+    margin: 0 0 0 3.5rem;
     overflow: hidden;
     min-height: 100vh;
     position: relative;
