@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "stylecoder.tw",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Homepage of Art Pai",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "Art Pai <minipai@gmail.com>",
   "dependencies": {
     "gatsby": "^2.13.73",
     "gatsby-image": "^2.2.10",
@@ -37,16 +34,6 @@
     "eslint-config-react-app": "^5.0.1",
     "eslint-plugin-react-hooks": "^2.0.1",
     "prettier": "^1.18.2"
-  },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
   },
   "scripts": {
     "build": "gatsby build",
