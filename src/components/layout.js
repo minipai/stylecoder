@@ -21,13 +21,13 @@ class Layout extends React.Component {
         </Helmet>
         <nav>
           <Link to="/" activeClassName="active">
-            <i class="fal fa-home"></i>
+            <i className="fal fa-home"></i>
           </Link>
           <Link to="/blog" activeClassName="active" partiallyActive>
-            <i class="fal fa-pencil"></i>
+            <i className="fal fa-pencil"></i>
           </Link>
           <Link to="/about" activeClassName="active">
-            <i class="fal fa-smile"></i>
+            <i className="fal fa-smile"></i>
           </Link>
         </nav>
         <main>

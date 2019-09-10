@@ -30,22 +30,22 @@ class BlogPostTemplate extends React.Component {
               <li>
                 {previous ? (
                   <Link to={"/blog" + previous.fields.slug} rel="prev">
-                    <i class="fal fa-arrow-alt-left"></i>
+                    <i className="fal fa-arrow-alt-left"></i>
                   </Link>
                 ) : (
                   <span>
-                    <i class="fal fa-arrow-alt-left"></i>
+                    <i className="fal fa-arrow-alt-left"></i>
                   </span>
                 )}
               </li>
               <li>
                 {next ? (
                   <Link to={"/blog" + next.fields.slug} rel="next">
-                    <i class="fal fa-arrow-alt-right"></i>
+                    <i className="fal fa-arrow-alt-right"></i>
                   </Link>
                 ) : (
                   <span>
-                    <i class="fal fa-arrow-alt-right"></i>
+                    <i className="fal fa-arrow-alt-right"></i>
                   </span>
                 )}
               </li>
