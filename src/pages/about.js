@@ -79,7 +79,6 @@ export const pageQuery = graphql`
           preview
           original
           timestamp
-          caption
           localFile {
             childImageSharp {
               fixed(width: 200, height: 200) {
