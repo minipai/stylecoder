@@ -29,6 +29,7 @@ module.exports = {
         username: `minipai`,
       },
     },
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
